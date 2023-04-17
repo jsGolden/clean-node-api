@@ -23,5 +23,17 @@
   "scripts": {
     "test": "jest --passWithNoTests",
     "test:staged": "jest --passWithNoTests"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint 'src/**' --fix",
+      "yarn test:staged",
+      "git add"
+    ]
   }
 }
