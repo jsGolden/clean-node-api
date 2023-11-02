@@ -15,6 +15,7 @@ export const MongoHelper = {
   },
 
   map (result: InsertOneResult<Document>, data: any): any {
+    if (data._id) delete data._id
     return {
       id: result.insertedId.toString(),
       ...data
