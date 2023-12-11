@@ -2,15 +2,26 @@ import { MongoClient, Collection, InsertOneResult } from 'mongodb'
 
 export const MongoHelper = {
   client: null as unknown as MongoClient,
-  async connect (uri: string): Promise<void> {
-    this.client = await MongoClient.connect(uri)
+  uri: null as unknown as string,
+
+  async connect (uri: string | undefined): Promise<void> {
+    this.uri = String(uri)
+    this.client = await MongoClient.connect(String(uri))
   },
 
   async disconnect (): Promise<void> {
     await this.client.close()
+    this.client = null
   },
 
-  getCollection (name: string): Collection {
+  async isConnected () {
+    return !!this.client && !!this.client.topology && this.client.topology.isConnected()
+  },
+
+  async getCollection (name: string): Promise<Collection> {
+    if (!this.client || !this.isConnected()) {
+      await this.connect(this.uri)
+    }
     return this.client.db().collection(name)
   },
 
