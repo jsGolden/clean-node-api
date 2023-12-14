@@ -16,7 +16,7 @@ export const makeSignupController = (): Controller => {
   const signupController = new SignUpController(emailValidatorAdapter, dbAddAccount)
 
   class FakeLogErrorRepository implements LogErrorRepository {
-    async log (stack: string): Promise<void> {
+    async logError (stack: string): Promise<void> {
 
     }
   }
