@@ -1,4 +1,4 @@
-import { MongoClient, Collection, InsertOneResult, Document } from 'mongodb'
+import { MongoClient, Collection, InsertOneResult, Document, ObjectId } from 'mongodb'
 
 export const MongoHelper = {
   client: null as unknown as MongoClient,
@@ -41,6 +41,9 @@ export const MongoHelper = {
       }
       if (delete mappedResult._id) delete mappedResult._id
       return mappedResult
+    },
+    stringToObjectId (value: string): ObjectId {
+      return new ObjectId(value)
     }
   }
 }
