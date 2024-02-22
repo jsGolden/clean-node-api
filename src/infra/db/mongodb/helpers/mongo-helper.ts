@@ -1,4 +1,4 @@
-import { MongoClient, Collection, InsertOneResult } from 'mongodb'
+import { MongoClient, Collection, InsertOneResult, Document } from 'mongodb'
 
 export const MongoHelper = {
   client: null as unknown as MongoClient,
@@ -25,11 +25,22 @@ export const MongoHelper = {
     return this.client.db().collection(name)
   },
 
-  map (result: InsertOneResult<Document>, data: any): any {
-    if (data._id) delete data._id
-    return {
-      id: result.insertedId.toString(),
-      ...data
+  map: {
+    insert (result: InsertOneResult<Document>, data: any): any {
+      if (data._id) delete data._id
+      return {
+        id: result.insertedId.toString(),
+        ...data
+      }
+    },
+    find <T extends Document | null>(result: T) {
+      if (!result) return result
+      const mappedResult = {
+        ...result,
+        id: result._id
+      }
+      if (delete mappedResult._id) delete mappedResult._id
+      return mappedResult
     }
   }
 }
