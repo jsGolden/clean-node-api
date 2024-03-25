@@ -8,13 +8,15 @@
     "start": "node dist/main/server.js",
     "build": "rimraf dist && tsc",
     "dev": "sucrase-node src/main/server.ts",
+    "up": "yarn run build && docker-compose up -d",
+    "down": "docker-compose down",
     "test": "jest --passWithNoTests --silent --noStackTrace --coverage=false --runInBand",
     "test:verbose": "jest --passWithNoTests --runInBand",
     "test:unit": "yarn test -- --watch -c jest-unit.config.js",
     "test:integration": "yarn test -- --watch -c jest-integration.config.js",
     "test:staged": "yarn test -- --findRelatedTests",
     "test:ci": "yarn test -- --coverage",
-    "prepare": "husky install"
+    "prepare": "husky install || true"
   },
   "devDependencies": {
     "@shelf/jest-mongodb": "^4.1.7",
