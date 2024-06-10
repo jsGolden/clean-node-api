@@ -7,7 +7,7 @@
 
 # **Clean Node API**
 
-[![alt text](https://github.com/rmanguinho/clean-ts-api/raw/master/public/img/logo-course.png "Link para o treinamento")]
+![alt text](https://github.com/rmanguinho/clean-ts-api/raw/master/public/img/logo-course.png "Link para o treinamento")
 
 ---
 
