@@ -84,7 +84,7 @@ describe('Account Mongo Repository', () => {
       expect(account.accessToken).toBe('any_token')
     })
   })
-  describe('loadByTokeb()', () => {
+  describe('loadByToken()', () => {
     test('Should return an account on loadByToken without role', async () => {
       const sut = makeSut()
       await accountCollection.insertOne({
