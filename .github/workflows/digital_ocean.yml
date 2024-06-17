@@ -68,5 +68,5 @@ jobs:
         username: ${{ secrets.SSH_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          ls
-          find / -name npm 2>/dev/null
+          cd clean-node-api
+          /root/.local/share/fnm/node-versions/v20.14.0/installation/bin/npm start
