@@ -68,5 +68,5 @@ jobs:
         username: ${{ secrets.SSH_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          cd /root/clean-node-api
+          ls
           find / -name npm 2>/dev/null
