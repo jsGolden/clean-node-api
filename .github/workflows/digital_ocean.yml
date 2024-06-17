@@ -23,7 +23,7 @@ jobs:
       run: npm install
 
     - name: Run lint
-      run: eslint 'src/**'
+      run: npm run eslint 'src/**'
 
     - name: Run tests
       run: npm run test:coveralls
