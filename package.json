@@ -18,7 +18,8 @@
     "test:staged": "yarn test -- --findRelatedTests",
     "test:ci": "yarn test -- --coverage",
     "test:coveralls": "yarn test:ci && coveralls < coverage/lcov.info",
-    "prepare": "husky install || true"
+    "prepare": "husky install || true",
+    "lint": "eslint src/**"
   },
   "devDependencies": {
     "@shelf/jest-mongodb": "^4.1.7",
