@@ -69,5 +69,4 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
           cd /root/clean-node-api
-          npm install --omit=dev
-          npm start
+          npm
