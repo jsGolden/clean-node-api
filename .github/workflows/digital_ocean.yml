@@ -62,11 +62,11 @@ jobs:
         target: "/root/clean-node-api"
 
     - name: Execute remote commands via SSH
-      uses: appleboy/ssh-action@v0.1.8
+      uses: appleboy/ssh-action@v1.0.3
       with:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
           cd /root/clean-node-api
-          npm
+          find / -name npm 2>/dev/null
