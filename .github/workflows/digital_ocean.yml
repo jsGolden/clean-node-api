@@ -69,4 +69,5 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
           cd clean-node-api
-          /root/.local/share/fnm/node-versions/v20.14.0/installation/bin/npm start
+          source ~/.bashrc
+          npm run start
