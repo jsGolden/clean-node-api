@@ -42,7 +42,7 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: '20.x'
-        
+
     - name: Install dependencies
       run: npm install
 
@@ -58,7 +58,7 @@ jobs:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-        source: "dist/*"
+        source: "package.json,dist/*"
         target: "/root/clean-node-api"
 
     - name: Execute remote commands via SSH
