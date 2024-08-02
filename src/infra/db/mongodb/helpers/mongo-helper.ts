@@ -42,6 +42,10 @@ export const MongoHelper = {
       if (delete mappedResult._id) delete mappedResult._id
       return mappedResult
     },
+    findAll <T>(result: T[]): T[] {
+      if (!result) return result
+      return result.map(this.find)
+    },
     stringToObjectId (value: string): ObjectId {
       return new ObjectId(value)
     }
